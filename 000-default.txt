@@ -1,0 +1,16 @@
+server {
+       listen 80;
+       listen [::]:80;
+
+       server_name demo.stepapp.in www.demo.stepapp.in;
+
+       root /var/www/html;
+       index index.html;
+
+       access_log /var/log/nginx/demo.access.log;
+       error_log /var/log/nginx/demo.error.log;
+
+       location / {
+               try_files $uri $uri/ =404;
+       }
+}
